@@ -1,6 +1,6 @@
 package br.com.maisfoco.dao;
 
-import br.com.maisfoco.config.ConnectionFactory;
+import br.com.maisfoco.factory.ConnectionFactory;
 import br.com.maisfoco.model.Categoria;
 
 import java.sql.*;

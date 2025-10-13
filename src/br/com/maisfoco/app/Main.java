@@ -1,6 +1,6 @@
 package br.com.maisfoco.app;
 
-import br.com.maisfoco.config.ConnectionFactory;
+import br.com.maisfoco.factory.ConnectionFactory;
 import java.sql.Connection;
 
 public class Main {

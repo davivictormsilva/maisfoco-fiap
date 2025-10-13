@@ -2,7 +2,7 @@ package br.com.maisfoco.app;
 
 import br.com.maisfoco.dao.ContaDAO;
 import br.com.maisfoco.model.Conta;
-import br.com.maisfoco.config.ConnectionFactory;
+import br.com.maisfoco.factory.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,12 +13,16 @@ public class TesteConta {
     public static void main(String[] args) {
         try {
             Long userId = ensureUsuario("Davi", "aluno@maisfoco.com", "123");
+            if (userId == null) {
+                System.out.println("Náo foi possível garantir o usuário. Verifique a conexão SQL");
+                return;
+            }
             ContaDAO dao = new ContaDAO();
-            dao.insert(new Conta("Conta Principal", "CORRENTE", 1000.0, userId));
-            dao.insert(new Conta("Poupanca", "POUPANCA", 250.0, userId));
-            dao.insert(new Conta("Carteira", "OUTRO", 80.0, userId));
-            dao.insert(new Conta("Cartao Visa", "CARTAO", 0.0, userId));
-            dao.insert(new Conta("Caixinha Viagem", "OUTRO", 300.0, userId));
+            dao.insert(new Conta("Conta Principal", "Bancaria", 1000.0, userId));
+            dao.insert(new Conta("Poupanca", "Bancaria", 250.0, userId));
+            dao.insert(new Conta("Carteira", "Carteira", 80.0, userId));
+            dao.insert(new Conta("Cartao Visa", "Digital", 0.0, userId));
+            dao.insert(new Conta("Caixinha Viagem", "Carteira", 300.0, userId));
             List<Conta> contas = dao.getAll();
             for (Conta c : contas) System.out.println(c);
         } catch (Exception e) {

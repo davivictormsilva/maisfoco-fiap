@@ -1,4 +1,4 @@
-package br.com.maisfoco.config;
+package br.com.maisfoco.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

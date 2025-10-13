@@ -1,6 +1,6 @@
 package br.com.maisfoco.app;
 
-import br.com.maisfoco.config.ConnectionFactory;
+import br.com.maisfoco.factory.ConnectionFactory;
 import br.com.maisfoco.dao.MetaDAO;
 import br.com.maisfoco.model.Meta;
 
